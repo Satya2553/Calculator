@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Basic Calculator</title>
+        <script>
+            function insert(n)
+            {
+                document.cal.result.value=document.cal.result.value+n;
+            }
+            function erase()
+            {
+                var v=document.cal.result.value;
+                document.cal.result.value=v.substring(0,v.length-1);
+            }
+            function equal()
+            {
+                document.cal.result.value=eval(document.cal.result.value);
+            }
+        </script>
+        <style>
+            body{
+                text-align: center;
+                margin: 0;
+                padding: 0;
+                background: black;
+            }
+            #calculator{
+                text-align: center;
+                margin-top: 15px;              
+            }
+            #numbers{
+                width=500px;
+                text-align: center;
+                line-height: 3;
+                word-spacing: 20px; 
+                font-size: large;
+            }
+            #result{
+                color: black;
+                font-size: larger;
+            }
+            h{
+                margin-top: 100px;
+                color: white;
+                text-align: center;
+                font-style: oblique;
+                font-size: xx-large;
+            }
+        </style>
+    </head>
+    <body>
+        <h><center><u>CALCULATOR</u></center></h>
+        <br>
+        <br>
+        <form name="cal">
+            <input class="result" name="result">
+        </form>
+        <div id="calculator">
+            <div id="numbers">
+                <input type="button" value="7" onclick="insert(7)"> 
+                <input type="button" value="8" onclick="insert(8)">
+                <input type="button" value="9" onclick="insert(9)">
+                <input type="button" value="C" onclick="erase()"><br>
+                <input type="button" value="4" onclick="insert(4)">
+                <input type="button" value="5" onclick="insert(5)">
+                <input type="button" value="6" onclick="insert(6)">
+                <input type="button" value="/" onclick="insert('/')"><br>
+                <input type="button" value="1" onclick="insert(1)">
+                <input type="button" value="2" onclick="insert(2)">
+                <input type="button" value="3" onclick="insert(3)">
+                <input type="button" value="*" onclick="insert('*')"><br>
+                <input type="button" value="0" onclick="insert(0)">
+                <input type="button" value="-" onclick="insert('-')">
+                <input type="button" value="+" onclick="insert('+')">
+                <input type="button" value="=" onclick="equal()">
+            </div>
+       </div>
+    </body>
+</html>
