@@ -14,7 +14,15 @@
             }
             function equal()
             {
-                document.cal.result.value=eval(document.cal.result.value);
+                var e=document.cal.result.value;
+                if(e.substring(e.length-1,e.length)=="+"||e.substring(e.length-1,e.length)=="-"||e.substring(e.length-1,e.length)=="/"||e.substring(e.length-1,e.length)=="*")
+                {
+                    alert("Unexpexted End Of Input.")
+                }
+                else
+                {
+                    document.cal.result.value=eval(e);
+                }
             }
         </script>
         <style>
