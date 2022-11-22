@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Basic Calculator</title>
         <script>
             function insert(n)
@@ -17,7 +19,7 @@
                 var e=document.cal.result.value;
                 if(e.substring(e.length-1,e.length)=="+"||e.substring(e.length-1,e.length)=="-"||e.substring(e.length-1,e.length)=="/"||e.substring(e.length-1,e.length)=="*")
                 {
-                    alert("Unexpexted End Of Input.")
+                    document.cal.result.value="Syntax Error"
                 }
                 else
                 {
@@ -27,44 +29,55 @@
         </script>
         <style>
             body{
-                text-align: center;
-                margin: 0;
-                padding: 0;
-                background: black;
+                height:100%;
+                width: 100%;
+                margin: 50px 0px 0px 50px;
+                border: 50px;
+                position: absolute;
             }
             #calculator{
-                text-align: center;
-                margin-top: 15px;              
+                margin-top: 10px;       
             }
             #numbers{
-                width=500px;
-                text-align: center;
-                line-height: 3;
-                word-spacing: 20px; 
-                font-size: large;
+                line-height: 2.5;
+                word-spacing: 15px;
+                font-size:xx-large;
             }
             #result{
                 color: black;
-                font-size: larger;
+                font-size: larger; 
             }
             h{
-                margin-top: 100px;
-                color: white;
-                text-align: center;
-                font-style: oblique;
+                margin-top: 10cm;
+                color: black;
+                font-style: normal;
                 font-size: xx-large;
+            }
+            input[type=button]{
+                padding:15px; 
+                font-size: 25px;   
+            }
+            input[type=reset]{
+                padding: 22px 8px;
+            }
+            input[type=text]{
+                padding:10px 29px;
+                font-size: 20px;
+            }
+            input[type=submit]{
+                padding: 13px 50px;
+                font-size: 30px;
             }
         </style>
     </head>
     <body>
-        <h><center><u>CALCULATOR</u></center></h>
+        <h><u><center>ARITHMETIC CALCULATOR</center></u></h>
         <br>
-        <br>
-        <form name="cal">
-            <input class="result" name="result">
+        <form name="cal" align="center">
+            <input type="text" class="result" name="result">
         </form>
         <div id="calculator">
-            <div id="numbers">
+            <div id="numbers" align="center">
                 <input type="button" value="7" onclick="insert(7)"> 
                 <input type="button" value="8" onclick="insert(8)">
                 <input type="button" value="9" onclick="insert(9)">
@@ -80,9 +93,11 @@
                 <input type="button" value="0" onclick="insert(0)">
                 <input type="button" value="-" onclick="insert('-')">
                 <input type="button" value="+" onclick="insert('+')">
-                <input type="button" value="=" onclick="equal()">
+                <input type="reset" value="reset" onclick="document.cal.result.value=' '"><br>
+                <input type="button" value="(" onclick="insert('(')">
+                <input type="button" value=")" onclick="insert(')')">
+                <input type="submit" value="=" onclick="equal()">
             </div>
-            <input type="reset" value="reset" onclick="document.cal.result.value=' '">
        </div>
     </body>
 </html>
